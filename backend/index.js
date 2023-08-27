@@ -14,10 +14,7 @@ MongoClient.connect(
       wtimeout: 2500,
       useNewUrlParse: true }
     )
-    .catch(err => {
-      console.error(err.stack)
-      process.exit(1)
-    })
+    .catch((error) => console.log(error.message))
     .then(async client => {
         await travelDAO.injectDB(client)
       app.listen(port, () => {
