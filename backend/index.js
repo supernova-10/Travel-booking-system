@@ -8,9 +8,9 @@ const MongoClient = mongodb.MongoClient;
 
 const port = process.env.PORT || 8000; // orignally its 5000 but if that cannot be accessed use this instead
 MongoClient.connect(process.env.travel_DB_URI, {
-	poolSize: 50,
-	wtimeout: 2500,
-	useNewUrlParse: true,
+	maxPoolSize: 50,
+	wtimeoutMS: 2500,
+	useNewUrlParser: true,
 })
 	.catch((error) => console.log(error.message))
 	.then(async (client) => {
